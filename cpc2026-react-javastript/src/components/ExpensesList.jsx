@@ -1,12 +1,16 @@
+import { useContext } from 'react';
 import { ExpenseItem } from './ExpenseItem';
+import { ExpenseContext } from '../context/ExpenseContext';
 
-export default function ExpensesList({items, onDelete}) {
+export default function ExpensesList() {
+    const { expenses: items } = useContext(ExpenseContext);
+
     if(items.length === 0) return (
         <h2 className="expenses-list_fallback">
             Brak wydatków. Ciesz się oszczędnościami!
         </h2>
     )
-    console.log(items)
+
     return (
         <ul>
             {items.map((expense, key) => (
@@ -14,8 +18,8 @@ export default function ExpensesList({items, onDelete}) {
                     key={key}
                     id={expense.id} 
                     title={expense.title} 
-                    amount={expense.amount} 
-                    onDelete={onDelete}/>
+                    amount={expense.amount}
+                />
             ))}
         </ul>
     );

@@ -1,32 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ExpensesList from "./components/ExpensesList";
+import { ExpenseContext } from './context/ExpenseContext';
 
 export default function App() {
-  const [expenses, setExpenses] = useState([
-    { id: 1, title: 'Kawa', amount: 18 },
-    { id: 2, title: 'Bilet MZK', amount: 4.40 }
-  ]);
-
-  const handleAddExpense = (expense) => {
-    setExpenses((prevExpenses) => [expense, ...prevExpenses]);
-  };
-  
-  const handleDeleteExpense = (id) => {
-    setExpenses(expenses.filter(exp => exp.id !== id));
-  }
-
+  console.log("Rerender App")
   return (
     <div className="container">
       <h1>Menedżer wydatków</h1>
-      <ExpenseForm onAddExpense={handleAddExpense} />
-      <ExpensesList items={expenses} onDelete={handleDeleteExpense}/>
+      <ExpenseForm />
+      <ExpensesList />
     </div>
   )
 }
 
-function ExpenseForm({ onAddExpense }) {
+function ExpenseForm() {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
+  const { handleAddExpense } = useContext(ExpenseContext);
 
   // Wysłanie formularza
   const submitHandler = (event) => {
@@ -36,13 +26,13 @@ function ExpenseForm({ onAddExpense }) {
       title: title,
       amount: amount,
     };
-    onAddExpense(newExpense);
+    handleAddExpense(newExpense);
 
     // Resetowanie pól formularza
     setTitle('');
     setAmount('');
   };
-
+  
   return (
     <form onSubmit={(event) => submitHandler(event)}>
       <input type="text" placeholder="Nazwa wydatku" value={title} onChange={(e) => setTitle(e.target.value)}/>
