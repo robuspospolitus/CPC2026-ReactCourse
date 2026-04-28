@@ -10,19 +10,19 @@ export default function App() {
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
   };
 
-  console.log(expenses);
   return (
     <div className="container">
       <h1>Menedżer wydatków</h1>
-      <ExpenseForm />
+      <ExpenseForm onAddExpense={handleAddExpense}/>
     </div>
   )
 }
 
-function ExpenseForm() {
+function ExpenseForm({ onAddExpense }) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
 
+  // Wysłanie formularza
   const submitHandler = (event) => {
     event.preventDefault();
     const newExpense = {
@@ -30,7 +30,7 @@ function ExpenseForm() {
       title: title,
       amount: amount,
     };
-    handleAddExpense(newExpense);
+    onAddExpense(newExpense);
 
     // Resetowanie pól formularza
     setTitle('');
