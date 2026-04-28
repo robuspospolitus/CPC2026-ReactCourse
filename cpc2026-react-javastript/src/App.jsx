@@ -4,7 +4,7 @@ import ExpensesList from "./components/ExpensesList";
 export default function App() {
   const [expenses, setExpenses] = useState([
     { id: 1, title: 'Kawa', amount: 18 },
-    { id: 2, title: 'Bilet MPK', amount: 4.40 }
+    { id: 2, title: 'Bilet MZK', amount: 4.40 }
   ]);
 
   const handleAddExpense = (expense) => {
@@ -14,7 +14,8 @@ export default function App() {
   return (
     <div className="container">
       <h1>Menedżer wydatków</h1>
-      <ExpenseForm onAddExpense={handleAddExpense}/>
+      <ExpenseForm onAddExpense={handleAddExpense} />
+      <ExpensesList items={expenses} />
     </div>
   )
 }
