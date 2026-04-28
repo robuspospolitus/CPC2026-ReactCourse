@@ -1,13 +1,18 @@
 import { createContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const ExpenseContext = createContext();
 
 export const ExpenseProvider = ({ children }) => {
-    const [expenses, setExpenses] = useState([
-        { id: 1, title: 'Kawa', amount: 18 },
-        { id: 2, title: 'Bilet MZK', amount: 4.40 }
-    ]);
+    const [expenses, setExpenses] = useState(() => {
+        const saved = localStorage.getItem('expenses');
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+    }, [expenses]);
+
     const handleAddExpense = (expense) => {
         setExpenses((prevExpenses) => [expense, ...prevExpenses]);
     };
