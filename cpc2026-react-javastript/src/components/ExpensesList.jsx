@@ -1,6 +1,6 @@
 import { ExpenseItem } from './ExpenseItem';
 
-export default function ExpensesList({items}) {
+export default function ExpensesList({items, onDelete}) {
     if(items.length === 0) return (
         <h2 className="expenses-list_fallback">
             Brak wydatków. Ciesz się oszczędnościami!
@@ -14,7 +14,8 @@ export default function ExpensesList({items}) {
                     key={key}
                     id={expense.id} 
                     title={expense.title} 
-                    amount={expense.amount} />
+                    amount={expense.amount} 
+                    onDelete={onDelete}/>
             ))}
         </ul>
     );

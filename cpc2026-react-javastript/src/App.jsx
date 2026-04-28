@@ -10,12 +10,16 @@ export default function App() {
   const handleAddExpense = (expense) => {
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
   };
+  
+  const handleDeleteExpense = (id) => {
+    setExpenses(expenses.filter(exp => exp.id !== id));
+  }
 
   return (
     <div className="container">
       <h1>Menedżer wydatków</h1>
       <ExpenseForm onAddExpense={handleAddExpense} />
-      <ExpensesList items={expenses} />
+      <ExpensesList items={expenses} onDelete={handleDeleteExpense}/>
     </div>
   )
 }
