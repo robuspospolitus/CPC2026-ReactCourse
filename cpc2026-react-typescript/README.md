@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# Menedżer wydatków
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prosta aplikacja stworzona w React Typescript, która pozwala dodawać, usuwać i przeglądać wydatki.
 
-Currently, two official plugins are available:
+Projekt powstał jako materiał szkoleniowy. Pokazuje podstawowe mechanizmy React w praktyce.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Instalacja
 
-## React Compiler
+Zainstaluj zależności:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`npm install`
 
-## Expanding the ESLint configuration
+i uruchom aplikację:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+`npm run dev`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Projekt korzysta z Vite, więc aplikacja powinna uruchomić się bardzo szybko.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Funkcjonalności
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- dodawanie nowych wydatków
+- usuwanie wydatków
+- podsumowanie (łączna kwota + liczba transakcji)
+- zapis danych w localStorage (dane nie znikają po odświeżeniu)
+- routing między widokami (lista / statystyki)
+
+## Czego się tutaj nauczysz
+
+- komponenty i ich struktura
+- propsy i przepływ danych
+- hooki (useState, useEffect, useContext)
+- zarządzanie stanem globalnym (Context API)
+- obsługa zdarzeń (event handlers)
+- routing przy użyciu React Router
+- praca z localStorage
+
+## Struktura projektu
+
+```
+src/
+│
+├── components/     # komponenty UI
+├── context/        # Context API (globalny stan)
+├── pages/          # widoki (np. Home, Expenses, Stats)
+├── assets/         # pliki statyczne (obrazy)
+└── App.jsx         # główny komponent aplikacji
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Wskazówki dla kursantów
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- spróbuj zamienić props drilling na Context (tak jak na repo)
+- spróbuj dodać edycję wydatków
+- dodaj kategorię (np. jedzenie, transport)
+- dodaj filtrowanie lub wyszukiwanie
+- spróbuj przepisać Context na useReducer
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Przydatne materiały
+
+React – https://react.dev
+React Router – https://reactrouter.com
+Vite – https://vitejs.dev
+
+## Autor
+
+Projekt przygotowany na potrzeby zajęć z Reacta.
