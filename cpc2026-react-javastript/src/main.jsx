@@ -9,7 +9,9 @@ import Logo from './assets/logo.png';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    {/* ExpenseProvider to od naszego kontekstu, abyśmy mieli dostęp do jego zmiennych */}
     <ExpenseProvider>
+      {/* BrowserRouter to blok któy zarządza adresami URL */}
       <BrowserRouter>
         <nav className='navbar'>
           <div className="nav-logo">
@@ -20,6 +22,8 @@ createRoot(document.getElementById('root')).render(
             <Link to="/stats">Statystyki</Link>
           </div>
         </nav>
+        
+        {/* Tutaj tworzymy nasze ścieżki. Ten fragment nie jest widoczny na stronie */}
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/stats" element={<Stats />} />

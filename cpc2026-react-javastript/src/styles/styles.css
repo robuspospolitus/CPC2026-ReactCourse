@@ -7,63 +7,69 @@
   --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
+/* Stylowanie elementu body */
 body {
-  margin: 0;
-  padding: 0;
-  min-height: calc(100vh - 80px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #667eea; /* Kolor bazowy */
-  background-image: 
+  margin: 0;  /* zerowy margines zewnętrzny */
+  padding: 0; /* zerowy margines wewnętrzny */
+  min-height: calc(100vh - 80px); /* minimalna wysokość elementu body */
+  display: flex;  /* rodzaj wyświetlania elementów we wnętrzu, więcej info https://www.w3schools.com/css/css3_flexbox.asp */
+  justify-content: center;  /* wycentrowanie wertykalne (w rzędzie)*/
+  align-items: center;  /* wycentrowanie horyzontalne (w rzędzie)*/
+  background-color: #667eea; /* Kolor bazowy tła */
+  background-image: /* Tło gradientowe różne kolory */
     radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
     radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
     radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%), 
     radial-gradient(at 0% 100%, hsla(321,30%,40%,1) 0, transparent 50%), 
     radial-gradient(at 100% 100%, hsla(242,50%,30%,1) 0, transparent 50%);
-    background-size: 200% 200%;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  color: var(--text-main);
-  padding-top: 80px;
-  animation: background-animation 15s ease-in-out infinite;
+  background-size: 200% 200%; /* wielkość tła body. zrobione, aby ładna animacja mogła się poruszać */
+  font-family: 'Segoe UI', system-ui, sans-serif; /* czcionka textu */
+  color: var(--text-main); /* kolor tekstu według zmiennej w root (u góry) */
+  padding-top: 80px; /* margines wewnętrzny górny */
+  animation: background-animation 15s ease-in-out infinite; /* animacja i jej parametry. nazwa odnosi się do animacji na dole tego pliku */
 }
 
+/* Stylowanie elementu o className container */
 .container {
-  width: auto;
-  max-width: 450px;
-  background: var(--card-bg);
-  padding: 2rem;
-  box-sizing: border-box;
-  border-radius: 24px;
-  box-shadow: var(--shadow);
+  width: auto; /* automatycznie dobierana szerokość komponentu */
+  max-width: 450px; /* maksymalna szerokość*/
+  background: var(--card-bg); /* kolor tła według zmiennej w root */
+  padding: 2rem; /* margines wewnętrzny */
+  box-sizing: border-box; /* padding zalicza się w wielkość komponentu */
+  border-radius: 24px; /* zagięcie rogów */
+  box-shadow: var(--shadow); /* cień rzucany przez komponent */
   backdrop-filter: blur(10px); /* Efekt szkła */
 }
+/* Stylowanie listy nienumerowanej */
 ul {
-  padding: 0;
+  padding: 0; /* zerowy margines wewnętrzny */
 }
+/* Stylowanie nagłówka o randze 1*/
 h1 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  background: var(--bg-gradient);
-  background-clip: text;
+  text-align: center; /* wycentrowanie tekstu */
+  font-size: 1.8rem; /* wielkość czcionki */
+  margin-bottom: 2rem; /* margines zewnętrzny od dołu */
+  background: var(--bg-gradient); /* kolor tła według zmiennej w root */
+  background-clip: text; /* mówi jak ma się zachowywać tło. Aby był gradient text musi być przezroczysty a tło wycięte w kształcie tekstu, na dole to samo */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Stylowanie elementu o klasie (to tekst który się pojawia gdy nie ma żadnych wydatków) */
 .expenses-list_fallback {
-  font-size: 1.4em;
-  text-align: center;
-  padding: 1em 0;
+  font-size: 1.4em; /* wielkość czcionki */
+  text-align: center; /* wycentrowanie tekstu */
+  padding: 1em 0; /* margines wewnętrzny: góra/dół lewo/prawo*/
 }
 
 /* Animacja wejścia dla elementów listy */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); } /* przezroczysty, przesunięty o 10px na osi Y */
+  to { opacity: 1; transform: translateY(0); } /* widoczny, w swoim miejscu */
 }
 
+/* Stylowanie elementów listy */
 .expense-item {
-  display: flex;
+  display: flex; /* jak wyżej */
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
@@ -71,7 +77,7 @@ h1 {
   background: #f8f9fa;
   border-radius: 12px;
   border: 1px solid #eee;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* przejście pomiędzy zmianą wartości, aby było ładne dla oka */
   animation: fadeIn 0.4s ease-out;
 }
 

@@ -1,16 +1,65 @@
-# React + Vite
+# Menedżer wydatków
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prosta aplikacja stworzona w React, która pozwala dodawać, usuwać i przeglądać wydatki.
 
-Currently, two official plugins are available:
+Projekt powstał jako materiał szkoleniowy. Pokazuje podstawowe mechanizmy React w praktyce.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Instalacja
 
-## React Compiler
+Zainstaluj zależności:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+`npm install`
 
-## Expanding the ESLint configuration
+i uruchom aplikację:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+`npm run dev`
+
+Projekt korzysta z Vite, więc aplikacja powinna uruchomić się bardzo szybko.
+
+## Funkcjonalności
+
+- dodawanie nowych wydatków
+- usuwanie wydatków
+- podsumowanie (łączna kwota + liczba transakcji)
+- zapis danych w localStorage (dane nie znikają po odświeżeniu)
+- routing między widokami (lista / statystyki)
+
+## Czego się tutaj nauczysz
+
+- komponenty i ich struktura
+- propsy i przepływ danych
+- hooki (useState, useEffect, useContext)
+- zarządzanie stanem globalnym (Context API)
+- obsługa zdarzeń (event handlers)
+- routing przy użyciu React Router
+- praca z localStorage
+
+## Struktura projektu
+
+```
+src/
+│
+├── components/     # komponenty UI
+├── context/        # Context API (globalny stan)
+├── pages/          # widoki (np. Home, Expenses, Stats)
+├── assets/         # pliki statyczne (obrazy)
+└── App.jsx         # główny komponent aplikacji
+```
+
+## Wskazówki dla kursantów
+
+- spróbuj zamienić props drilling na Context (tak jak na repo)
+- spróbuj dodać edycję wydatków
+- dodaj kategorię (np. jedzenie, transport)
+- dodaj filtrowanie lub wyszukiwanie
+- spróbuj przepisać Context na useReducer
+
+## Przydatne materiały
+
+React – https://react.dev
+React Router – https://reactrouter.com
+Vite – https://vitejs.dev
+
+## Autor
+
+Projekt przygotowany na potrzeby zajęć z Reacta.
