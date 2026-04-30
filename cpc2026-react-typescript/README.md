@@ -39,10 +39,10 @@ Projekt korzysta z Vite, więc aplikacja powinna uruchomić się bardzo szybko.
 ```
 src/
 │
+├── assets/         # pliki statyczne (obrazy)
 ├── components/     # komponenty UI
 ├── context/        # Context API (globalny stan)
-├── pages/          # widoki (np. Home, Expenses, Stats)
-├── assets/         # pliki statyczne (obrazy)
+├── styles/         # stylowanie CSS
 └── App.jsx         # główny komponent aplikacji
 ```
 
